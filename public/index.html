@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,13 +23,14 @@
             margin-right: auto;
             margin-top: 10em; 
         }
-        #copy_butten {
-            margin-left: 0.1em;
+        .butten {
+            margin-left: auto; 
+            margin-right: auto;
+            margin-top: 1em;
             color : white;
             background-color: darkcyan;
             border-radius: 10px;
             border: solid;
-            font-size: large;
         }
     </style>
 
@@ -37,24 +39,11 @@
 	</div>
 
     <div class="centainer">
-        <h2 style="display:inline;" id="shorturl"><%= shorturl %></h2>
-        <button id="copy_butten" type="button">copy</button>
+        <form action="/inputlongurl" method="post">
+            INPUT URL : <input type="text" name="longurl">
+            <button class="butten" type="submit">makeit</button>
+        </form>
     </div>
-    
-    <script>
-        document.getElementById("copy_butten").onclick = function(){
-            const url = document.getElementById("shorturl").innerText;
-
-            const textArea = document.createElement('textarea');
-            document.body.appendChild(textArea);
-            textArea.value = url;
-            textArea.select();
-            
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-
-            alert("short url copied!")
-        }
-    </script>
 </body>
+    
 </html>
